@@ -46,6 +46,10 @@
             font-weight: 700;
         }
 
+        .diff {
+            display: none;
+        }
+
 
     </style>
 </head>
@@ -54,11 +58,12 @@
     <main class="adx">
         <br><br>
         <div class="selector">
-        <label class="container" style="display: inline;">
-            All characteristics
-            <input type="radio" name="entrep" value='all' checked>
-            <span class="radioMark"></span>
-        </label>
+            <label class="container" style="display: inline;">
+                Similar characteristics
+                <input type="radio" name="entrep" value='both' checked>
+                <span class="radioMark"></span>
+            </label>
+        
 
         <label class="container" style="display: inline;">
             Different characteristics
@@ -66,9 +71,11 @@
             <span class="radioMark"></span>
         </label>
 
+        
+
         <label class="container" style="display: inline;">
-            Similar characteristics
-            <input type="radio" name="entrep" value='both'>
+            All characteristics
+            <input type="radio" name="entrep" value='all'>
             <span class="radioMark"></span>
         </label>
     </div>
