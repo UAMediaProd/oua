@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Entrepreneur Characteristics</title>
+    <link rel="icon" href="https://styleguide-v3.adelaide.edu.au/assets/img/icons/apple-touch-icon-144-precomposed.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://uamediaprod.github.io/uoa-styles/assets/theme.css" type="text/css" />
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            font-size: 18px;
+            margin: auto;
+        }
+
+        body main {
+            margin-left: auto;
+            margin-right: auto;
+            min-width: 30ch;
+            max-width: 150ch;
+            padding: 2vh 2vw;
+        }
+
+        .selector label {
+            margin-right: 3em;
+        }
+
+        .selector {
+            margin-bottom: 2em;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .adx table td {
+            padding: 0.8em;
+        }
+
+        .both td {
+            background: #10253529;
+        }
+
+        .adx table tr td:first-child{
+            font-weight: 700;
+        }
+
+        .diff {
+            display: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <main class="adx">
+        <br><br>
+        <div class="selector">
+            <label class="container" style="display: inline;">
+                Similar characteristics
+                <input type="radio" name="entrep" value='both' checked>
+                <span class="radioMark"></span>
+            </label>
+        
+
+        <label class="container" style="display: inline;">
+            Different characteristics
+            <input type="radio" name="entrep" value='diff'>
+            <span class="radioMark"></span>
+        </label>
+
+        
+
+        <label class="container" style="display: inline;">
+            All characteristics
+            <input type="radio" name="entrep" value='all'>
+            <span class="radioMark"></span>
+        </label>
+    </div>
+
+        <table class="adx">
+            <tr>
+                <th></th>
+                <th style="text-align: center;">Entrepreneur</th>
+                <th style="text-align: center;">Intrapreneur</th>
+            </tr>
+            <tr class="diff">
+                <td>Definition</td>
+                <td>An entrepreneur can be defined as an individual that builds a new venture with relatively limited resources, solely bearing the risks and rewards of the venture.</td>
+                <td>An intrapreneur is an individual who works on developing new ideas and products within the confines of the business that they already work at.</td>
+            </tr>
+            <tr class="diff">
+                <td>Objective</td>
+                <td>To create something of socio-economic value</td>
+                <td>To increase organisational competitiveness</td>
+            </tr>
+            <tr class="diff">
+                <td>Operations</td>
+                <td>Externally, outside of an existing organisation</td>
+                <td>Internally in the organisation</td>
+            </tr>
+            <tr class="diff">
+                <td>Driving motive</td>
+                <td><ul>
+                    <li>Innovations based on passion</li>
+                    <li>Independence</li>
+                    <li>Financial gains</li>
+            </ul></td>
+                <td><ul>
+                    <li>Freedom to innovate</li>
+                    <li>Company's backing</li>
+                    <li>Company incentives</li>
+            </ul></td>
+            </tr>
+            <tr class="both">
+                <td>Innovation</td>
+                <td colspan=2>Both entrepreneurs and intrapreneurs <strong>NEED</strong> to innovate. They need to identify the market gap or niche and innovate accordingly. They need to thorogouhly research existing products/services, competitors, and patents/copyrights/trademarks.</td>
+           
+            </tr>
+            <tr class="both">
+                <td>Innovation justification</td>
+                <td colspan=2>Entrepreneurs and intrapreneurs need to develop prototypes and minimum viable product (MVP) to validate and support their innovation.</td>
+         
+            </tr>
+            <tr class="diff">
+                <td>Mindset</td>
+                <td>Problems are viewed as opportunities</td>
+                <td>Problems are viewed as threats</td>
+            </tr>
+            <tr class="diff">
+                <td>Leadership support</td>
+                <td>Support from several venture capital firms</td>
+                <td>Support from their own company 
+                </td>
+            </tr>
+            <tr class="both">
+                <td>Teamwork</td>
+                <td colspan=2>Entrepreneurs and intrapreneurs need to build competitive team capabilities. They need to bring a team together and define culture and behaviour. They define the roles and delegate work.</td>
+                
+            </tr>
+            <tr class="diff">
+                <td>Parties served</td>
+                <td>Customers</td>
+                <td>The organisation & the entrepreneur themselves</td>
+            </tr>
+            <tr class="diff">
+                <td>Risk</td>
+                <td>Vulnerable to all types of risk</td>
+                <td>Limited risk </td>
+            </tr>
+            <tr class="diff">
+                <td>Decision-making</td>
+                <td>Involves greater independence</td>
+                <td>Involves greater collaboration</td>
+            </tr>
+            <tr class="both">
+                <td>Market awareness</td>
+                <td colspan=2>The way entrepreneurs and intrapreneurs gain an understanding of the market is essentially the same. They must research and keep validating by interviewing people and getting insights to refine their products/services.</td>
+               
+            </tr>
+            <tr class="both">
+                <td>Funding</td>
+                <td colspan=2>Entrepreneurs and intrapreneurs need to pitch to external or internal investors respectively to secure support or funding for their idea. The pitching is very similar and competitive.</td>
+         
+            </tr>
+            <tr class="diff">
+                <td>Timeframe</td>
+                <td>Not time-bound</td>
+                <td>Time frame stipulated by the organisation</td>
+            </tr>
+           
+          
+        </table>
+
+
+
+
+
+
+    </main>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $("input").on("change", function() {
+       console.log(this.value);
+
+    if(this.value == "both"){
+        $(".both").show();
+        $(".diff").hide();
+    } else if (this.value == "diff"){
+        $(".both").hide();
+        $(".diff").show();
+    } else {
+        $(".both").show();
+        $(".diff").show();  
+    }
+    
+
+    });
+</script>
+
+
+</html>
