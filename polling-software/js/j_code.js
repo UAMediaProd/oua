@@ -61,7 +61,7 @@ var arrayQuestions = [
 
 var list = document.getElementById('questionChoices')
 var base, randomized, dragging, draggedOver;
-var isRight = 'Not In Order!';
+var isRight = 'Thanks for that!';
 
 const genRandom = (array) => {
     base = array.slice()
@@ -75,19 +75,19 @@ const genRandom = (array) => {
 }
 
 const renderItems = (data) => {
-    document.getElementById('isRight').innerText = isRight
-    list.innerText = ''
+    document.getElementById('isRight').innerText = isRight;
+    list.innerText = '';
     data.forEach(item => {
+       // var node = document.createElement("button");
         var node = document.createElement("li");
-        node.draggable = true
-        node.style.backgroundColor = item
+        node.draggable = true;
         //node.className = "adx-button primary";
-       
-        node.addEventListener('drag', setDragging)
-        node.addEventListener('dragover', setDraggedOver)
-        node.addEventListener('drop', compare)
-        node.innerText = item
-        list.appendChild(node)
+        //node.classList.add('adx-button primary');
+        node.addEventListener('drag', setDragging);
+        node.addEventListener('dragover', setDraggedOver);
+        node.addEventListener('drop', compare);
+        node.innerText = item;
+        list.appendChild(node);
     })
 }
 
@@ -98,9 +98,9 @@ const compare = (e) => {
     randomized.splice(index2, 0, dragging)
 
     isRight = randomized.join("") === base.join("")
-        ? 'In Order!' : 'Not In Order!'
+        ? 'In Order!' : 'Thanks for that!'
 
-    renderItems(randomized)
+    renderItems(randomized);
 };
 
 
