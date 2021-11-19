@@ -47,7 +47,7 @@ var arrayQuestions = [
 
 //Sets up the choice buttons (6 questions) so they are clickable and draggable.
 
-for (i = 0; i < arrayQuestions.length; i++) {
+/* for (i = 0; i < arrayQuestions.length; i++) {
     var choiceElements = document.getElementById("questionChoices");
     console.log("hi");
     choiceElements.innerHTML += "<button class='adx-button primary' onClick=\"funcSelectChoice()\">" + arrayQuestions[i].poll_question + "</button>";
@@ -56,10 +56,72 @@ for (i = 0; i < arrayQuestions.length; i++) {
     
     //element_1.innerHTML += "<button onClick=\"funcSelectBoneButton(event, this, '" + arrayBoneParts[i].color + "', '" + arrayBoneParts[i].color_class + "')\" class='adx-button primary " + arrayBoneParts[i].color_class + "'>" + arrayBoneParts[i].bone_number + ") " + arrayBoneParts[i].bone + "</button>";
 
+} */
+
+
+var list = document.getElementById('questionChoices')
+var base, randomized, dragging, draggedOver;
+var isRight = 'Not In Order!';
+
+const genRandom = (array) => {
+    base = array.slice()
+    randomized = array.sort(() => Math.random() - 0.5)
+    if (randomized.join("") !== base.join("")) {
+        renderItems(randomized)
+    } else {
+        //recursion to account if the randomization returns the original array
+        genRandom();
+    }
+}
+
+const renderItems = (data) => {
+    document.getElementById('isRight').innerText = isRight
+    list.innerText = ''
+    data.forEach(item => {
+        var node = document.createElement("li");
+        node.draggable = true
+        node.style.backgroundColor = item
+        //node.className = "adx-button primary";
+       
+        node.addEventListener('drag', setDragging)
+        node.addEventListener('dragover', setDraggedOver)
+        node.addEventListener('drop', compare)
+        node.innerText = item
+        list.appendChild(node)
+    })
+}
+
+const compare = (e) => {
+    var index1 = randomized.indexOf(dragging);
+    var index2 = randomized.indexOf(draggedOver);
+    randomized.splice(index1, 1)
+    randomized.splice(index2, 0, dragging)
+
+    isRight = randomized.join("") === base.join("")
+        ? 'In Order!' : 'Not In Order!'
+
+    renderItems(randomized)
+};
+
+
+const setDraggedOver = (e) => {
+    e.preventDefault();
+    draggedOver = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
+}
+
+const setDragging = (e) => {
+    dragging = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
 }
 
 
-
+genRandom([
+    'Why are customers important to the manager’s job?',
+    'Why is innovation important to the manager’s job?',
+    'Why are diversity and inclusion important to the manager’s job?',
+    'Why are social media tools important to the manager’s job?',
+    'Why is sustainability important to the manager’s job?',
+    'Why is it important for managers to understand the organisational implications of the COVID-19 pandemic on their job?'
+])
 
 
 
