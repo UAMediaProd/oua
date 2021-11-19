@@ -43,4 +43,7 @@
   font-weight: normal;
 }
 
+*, ::after, ::before {
+   box-sizing: unset
+}
 
