@@ -1,0 +1,46 @@
+/* new class that hides the fill - transparent */
+.invisibleClass {
+  opacity: 0;
+}
+
+.activeClass {
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.activeClass:hover {
+  opacity:0.6;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  margin-top: 10px;
+  align-self: auto;
+  width: 75%;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.selectedClass {
+  opacity: 0.9;
+}
+
+.correctClass {
+  opacity: 0.9;
+}
+
+.adx-button.primary {
+  width:85%;
+}
+
+.adx-button.primary:hover {
+  font-weight: normal;
+}
+
+
