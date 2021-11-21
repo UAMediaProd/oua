@@ -1,6 +1,65 @@
+//------ Danger Zone - Firebase Set up ------
+
+ // Your web app's Firebase configuration
+ const firebaseConfig = {
+    apiKey: "AIzaSyDNcTSvPaxr3tibN451b5Bl0OTF4hTS-Jo",
+    databaseURL: "https://lrd-interactions-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    authDomain: "lrd-interactions.firebaseapp.com",
+    projectId: "lrd-interactions",
+    storageBucket: "lrd-interactions.appspot.com",
+    messagingSenderId: "432588601822",
+    appId: "1:432588601822:web:78c52f8679cd01b1ff454f"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+console.log(firebase);
+
+// NOTE: Useful deets about Firebase - for future reference.
+
+//set data - NOTE: Firebase uses URL-like paths to store data like in a JSON file. So the below well set the value of an element that lives at 'Database/poll/0' or like so:
+/*
+
+    database = {
+        poll: {
+            0: "value",
+            1: "value"
+        }
+    }
+
+*/
+
+// firebase.database().ref('poll/0').set(
+//         data
+//     );
+
+// get data from Firebase
+
+// var polls = firebase.database().ref('poll/');
+
+
+// NOTE: getting the data from Firebase involves taking a snapshot of the data at the current point in time. You can do different things with Firebase where it will constantly update live and all that but we don't need that here. We look at what the current data looks like inside 'poll/' and return that info as a JSON string.
+
+// polls.once('value').then(function (snapshot) {
+//     data = snapshot.val();
+//     console.log("inital data", data);
+// });
+
+
+
+
+
+
 //-------Setting Up Variables-----------
 
+// NOTE: as you make changes to the code, make sure you also make changes to comments - so many bones haha!
+
+
 // An array containing a list of objects which each contain the number of the bone, the name of the bone, it's correct section and it's highlight color
+
+
+
+// NOTE: the array used inside genRandom is fit for purpose for building the interface - something like this would work for creating the data we send to the database (sans-totalVotes; we'll work that out on the server side and might not need/want the total votes like this) 
 
 var arrayQuestions = [
     {
@@ -35,8 +94,9 @@ var arrayQuestions = [
     }
 ]
 
-//var boolIsColoring = false; // If the user has selected a colour, this variable is True. It will only be False before anyone has selected a colour, and after the 'Check' button has been clicked.
-//var RGBcurrentColor = "NoColor"; // A variable to store the RGB value of the currently selected bone's colour. The default is "NoColor", which, funnily enough, means no color is selected.
+
+
+
 
 //var numCorrect = 0;
 
@@ -52,11 +112,13 @@ var arrayQuestions = [
     console.log("hi");
     choiceElements.innerHTML += "<button class='adx-button primary' onClick=\"funcSelectChoice()\">" + arrayQuestions[i].poll_question + "</button>";
 
-    
-    
-    //element_1.innerHTML += "<button onClick=\"funcSelectBoneButton(event, this, '" + arrayBoneParts[i].color + "', '" + arrayBoneParts[i].color_class + "')\" class='adx-button primary " + arrayBoneParts[i].color_class + "'>" + arrayBoneParts[i].bone_number + ") " + arrayBoneParts[i].bone + "</button>";
-
 } */
+
+
+
+
+
+
 
 
 var list = document.getElementById('questionChoices')
@@ -64,23 +126,35 @@ var base, randomized, dragging, draggedOver;
 var isRight = 'Thanks for that!';
 
 const genRandom = (array) => {
+    // NOTE: For clarity, what I believe this is doing is making a copy of the array pre-randomisation (base) and then creates a version which is randomised in order. So later it can compare what the "current" list is compared to the original (base)
+    
     base = array.slice()
     randomized = array.sort(() => Math.random() - 0.5)
+
+
     if (randomized.join("") !== base.join("")) {
         renderItems(randomized)
     } else {
+
+        // NOTE: We don't need this here - we don't care if the list of questions is "in order" at the start or not - there's no checking
+
         //recursion to account if the randomization returns the original array
         genRandom();
     }
 }
 
 const renderItems = (data) => {
-    document.getElementById('isRight').innerText = isRight;
+    
+    //document.getElementById('isRight').innerText = isRight;
+    
     list.innerText = '';
     data.forEach(item => {
-       // var node = document.createElement("button");
+       // var node = document.createElement("button"); NOTE: buttons will work as an element but might be confusing. List Items make sense inside of a list that you re-order imo.
         var node = document.createElement("li");
         node.draggable = true;
+
+        // NOTE: you can only add one class at a time here so you need to add each one individually like: node.classList.add('adx-button'); node.classList.add('primary'); etc.
+
         //node.className = "adx-button primary";
         //node.classList.add('adx-button primary');
         node.addEventListener('drag', setDragging);
@@ -97,8 +171,8 @@ const compare = (e) => {
     randomized.splice(index1, 1)
     randomized.splice(index2, 0, dragging)
 
-    isRight = randomized.join("") === base.join("")
-        ? 'In Order!' : 'Thanks for that!'
+    // NOTE/QUESTION: Does this just seek to match up the original list and the randomised list to check if it's in order?
+    isRight = randomized.join("") === base.join("") ? 'In Order!' : 'Thanks for that!'
 
     renderItems(randomized);
 };
@@ -162,12 +236,63 @@ genRandom([
 //     funcUnClick(e);
 // });
 
+
+
+
+
+
+
+//-------- Event Listeners -----------
+// NOTE: set up an event listener here for the #checker button to do `a thing` when it's clicked. Eventually it's where it will save to the database and all that but for now just hook it up.
+
+
+
+
+
+
 //--------Functions-----------
 
 
-function funcSelectBoneButton(event) {
+function funcSelectBoneButton() {
+    // NOTE: turn this into the function for clicking the 'submit' button
     console.log("oh, I see...");
+
+    //NOTE: call `collateData()`
+
+    //NOTE: if collateData() == true (see below) then show a success message. Else, show an error message. We'll keep it here because this is the function that concerns the UI while the other functions concern the data and server functions.
 }
+
+
+function collateData(){
+    // NOTE: temp function to read through the answers, build up the JSON object that will be sent to firebase
+    let answers = {};
+
+    // NOTE: go through the list that the student has built and save them in a list that also saves their order - that will be important to keep around
+
+    let success = fireData(answers); //NOTE: when that's done, call fireData, which will do all the database stuff and send it off - no further logic. Success is a variable that will be true or false 
+
+    // NOTE: we'll have a return statement here. Return uh returns a value after the function has run. So let success = fireData(answers); would then make success == true. We'll use this to check if there was an error in sending the data and if so, we return 'false' and can alert the user. Else, it's true.
+    return success;
+}
+
+function fireData(data){
+    // NOTE: function to send the data to the database - simple Firebase functions and if it's successful we return true; else we return false
+
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* // Function to write a function funcSelectBoneButton() which enables colouring and does something
 function funcSelectBoneButton(event, element, color, color_class) {

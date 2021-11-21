@@ -50,15 +50,17 @@
 
 
 
-
+/* NOTE: I would suggest changing up the styles ofthe questionChoices lists: Change the cursor for the draggable list items to something that looks more like a hand, or a move tool; ensure the list-style is none, etc. */
 
 
 #list{
   list-style: none;
 }
 
+
+
 #list li{
   margin: 10px;
-  cursor: pointer;
+  cursor: pointer; 
 }
 
