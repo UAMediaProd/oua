@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Timezone Converter</title>
+    <!-- <link rel="icon" href="https://styleguide-v3.adelaide.edu.au/assets/img/icons/apple-touch-icon-144-precomposed.png" type="image/x-icon"> -->
+    <link rel="stylesheet" href="https://uamediaprod.github.io/uoa-styles/assets/theme.css" type="text/css" />
+</head>
+
+<style>
+    .column {
+        margin-top: 0px;
+        align-self: flex-start;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .dateContainer {
+        display: flex;
+        align-items: flex-end;
+    }
+</style>
+
+<body>
+
+    <main class='adx'>
+        <div class="adx-cue-top">
+            <div class="dateContainer">
+                <div class="column" style="text-align: center;">
+                    <p>Unsure what time an Adelaide tutorial will occur in your local timezone?</p>
+                    <h4 style="font-size: small;">SELECT TUTORIAL DATE & TIME</h4>
+                    <input type="datetime-local" id="dateInput" style="width: 200px;"><br>
+                    <button class="adx-button brand-midblue" id="convert">Convert</button>
+                    <p><i>Note: Depending on your browser, this field may function slightly differently.</i></p>
+                </div>
+                <div class="column" style="text-align: center;">
+                    <h5 id="localDate"></h5>
+                </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+            <script src="https://momentjs.com/downloads/moment-timezone-with-data-10-year-range.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        </div>
+    </main>
+
+    <script>
+        // Prepares the Check Button
+        document.getElementById("convert").addEventListener("click", function (e) {
+            funcConvertDate(e);
+        });
+
+
+        // FUNCTIONS
+        function funcConvertDate(e) {
+            var dateFormat = document.getElementById('dateInput').value.split("T");
+            var dateValue = dateFormat[0] + " " + dateFormat[1];
+            var a = moment.tz(dateValue, "Australia/Adelaide"); //replace the first date with whatever the student puts into the date time form
+            //console.log(a + " the proper date format");
+            var localDate = moment(a).local();
+            var d = moment(localDate.toDate()).format("DD MMM MM YYYY hh:mm a");
+            var bobtest = d.substring(0, 14);
+            console.log(bobtest);
+            if (dateFormat[0] != "") {
+                document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>Your tutorial will be held on:<h4>" + d.substring(0, 14) + "</h4>" + "<h3>"+ d.substring(15) + "</h3>" + "(" + moment.tz.guess() + ")";
+            } else {
+                document.getElementById("localDate").innerHTML = "Please enter both a date and a time.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
