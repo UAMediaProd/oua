@@ -127,7 +127,7 @@ var isRight = 'Thanks for that!';
 
 const genRandom = (array) => {
     // NOTE: For clarity, what I believe this is doing is making a copy of the array pre-randomisation (base) and then creates a version which is randomised in order. So later it can compare what the "current" list is compared to the original (base)
-    
+
     base = array.slice()
     randomized = array.sort(() => Math.random() - 0.5)
 
@@ -168,17 +168,20 @@ const renderItems = (data) => {
 }
 
 const compare = (e) => {
-    console.log(dragging+": dragging");
-    console.log(draggedOver+": draggedOver");
-    var index1 = randomized.indexOf(dragging.toLowerCase());
-    var index2 = randomized.indexOf(draggedOver.toLowerCase());
+
+    var index1 = randomized.indexOf(dragging);
+    var index2 = randomized.indexOf(draggedOver);
     console.log(index1+": dragging");
     console.log(index2+": draggedOver");
     randomized.splice(index1, 1)
     randomized.splice(index2, 0, dragging)
 
+
+
+
+
     // NOTE/QUESTION: Does this just seek to match up the original list and the randomised list to check if it's in order?
-    isRight = randomized.join("") === base.join("") ? 'In Order!' : 'Thanks for that!'
+    // isRight = randomized.join("") === base.join("") ? 'In Order!' : 'Thanks for that!'
 
     renderItems(randomized);
 };
@@ -186,20 +189,21 @@ const compare = (e) => {
 
 const setDraggedOver = (e) => {
     e.preventDefault();
-    draggedOver = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
+    draggedOver = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText.toLowerCase() : parseInt(e.target.innerText)
 }
 
 const setDragging = (e) => {
-    dragging = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
+    dragging = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText.toLowerCase() : parseInt(e.target.innerText)
+
 }
 
 
 genRandom([
-    'why are customers important to the manager’s job?',
-    'why is innovation important to the manager’s job?',
-    'why are diversity and inclusion important to the manager’s job?',
-    'why are social media tools important to the manager’s job?',
-    'why is sustainability important to the manager’s job?',
+    'why are customers important to the manager\'s job?',
+    'why is innovation important to the manager\'s job?',
+    'why are diversity and inclusion important to the manager\'s job?',
+    'why are social media tools important to the manager\'s job?',
+    'why is sustainability important to the manager\'s job?',
     'why is it important for managers to understand the organisational implications of the covid-19 pandemic on their job?'
 ])
 
