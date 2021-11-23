@@ -29,7 +29,46 @@
     </script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyDNcTSvPaxr3tibN451b5Bl0OTF4hTS-Jo",
+    databaseURL: "https://lrd-interactions-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    authDomain: "lrd-interactions.firebaseapp.com",
+    projectId: "lrd-interactions",
+    storageBucket: "lrd-interactions.appspot.com",
+    messagingSenderId: "432588601822",
+    appId: "1:432588601822:web:78c52f8679cd01b1ff454f"
+};
 
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+    var polls = firebase.database().ref('poll/');
+
+
+// NOTE: getting the data from Firebase involves taking a snapshot of the data at the current point in time. You can do different things with Firebase where it will constantly update live and all that but we don't need that here. We look at what the current data looks like inside 'poll/' and return that info as a JSON string.
+
+polls.once('value').then(function (snapshot) {
+     data = snapshot.val();
+    console.log(data);
+
+
+//NOTE: get a list of all the questions
+
+    // FOR each question, count how many times it appears in data[0]
+
+for (const [key, value] of Object.entries(data)) {
+  console.log(value);
+
+    for (var i = 0; i < value.length; i++){
+        console.log(value[i]);
+    }
+
+}
+
+});
+</script>
 
 
 

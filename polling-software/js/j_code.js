@@ -13,25 +13,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-//console.log(firebase);
 
-// NOTE: Useful deets about Firebase - for future reference.
-
-//set data - NOTE: Firebase uses URL-like paths to store data like in a JSON file. So the below well set the value of an element that lives at 'Database/poll/0' or like so:
-/*
-
-    database = {
-        poll: {
-            0: "value",
-            1: "value"
-        }
-    }
-
-*/
-
-// firebase.database().ref('poll/0').set(
-//         data
-//     );
 
 // get data from Firebase
 
@@ -141,15 +123,11 @@ document.getElementById("checker").addEventListener("click", function (e) {
 
 function funcSubmit() {
     // NOTE: turn this into the function for clicking the 'submit' button
-    console.log(randomized);
-
+    
     if (collateData()) {
         $('#MainModal').modal();
     };
 
-
-
-    //NOTE: if collateData() == true (see below) then show a success message. Else, show an error message. We'll keep it here because this is the function that concerns the UI while the other functions concern the data and server functions.
 }
 
 
@@ -161,7 +139,7 @@ function collateData() {
         answers[i] = randomized[i];
 
     }
-    console.log(answers[5]);
+
 
     // NOTE: go through the list that the student has built and save them in a list that also saves their order - that will be important to keep around
 
@@ -173,7 +151,12 @@ function collateData() {
 
 function fireData(data) {
     // NOTE: function to send the data to the database - simple Firebase functions and if it's successful we return true; else we return false
+
     
-    //...<THINK WE ARE GOOD TO GO FROM HERE NOW>...
+    console.log(firebase);
+    console.log(data);
+
+firebase.database().ref('poll/').push(data);
+
     return true;
 }
