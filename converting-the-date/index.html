@@ -28,7 +28,7 @@
         <div class="adx-cue-brand-midblue-top">
             <div class="dateContainer">
                 <div class="column" style="text-align: center;">
-                    <h4 style="font-size: small;">SELECT TUTORIAL DATE & TIME</h4>
+                    <h4 style="font-size: small;">SELECT DATE & TIME <i>(include am/pm)</i></h4>
                     <input type="datetime-local" id="dateInput" style="width: 200px;"><br>
                     <button class="adx-button primary" id="convert">Convert</button>
                     <p><i>Note: Depending on your browser, this field may function slightly differently.</i></p>
@@ -55,13 +55,12 @@
         function funcConvertDate(e) {
             var dateFormat = document.getElementById('dateInput').value.split("T");
             var dateValue = dateFormat[0] + " " + dateFormat[1];
-            var a = moment.tz(dateValue, "Australia/Adelaide"); //replace the first date with whatever the student puts into the date time form
-            //console.log(a + " the proper date format");
+            var a = moment.tz(dateValue, "Australia/Adelaide");
             var localDate = moment(a).local();
             var d = moment(localDate.toDate()).format("DD MMM MM YYYY hh:mm a");
             var bobtest = d.substring(0, 14);
             if (dateFormat[0] != "") {
-                document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>Your tutorial will be held on:<h3 style=\"line-height: 1.25\">" + d.substring(0, 14) +"<br>" + d.substring(15) + "<br>(" + moment.tz.guess() +")</h3>";
+                document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>The converted date and time is:<h3 style=\"line-height: 1.25\">" + d.substring(0, 14) +"<br>" + d.substring(15) + "<br>(" + moment.tz.guess() +")</h3>";
             } else {
                 document.getElementById("localDate").innerHTML = "Please enter both a date and a time.";
             }
