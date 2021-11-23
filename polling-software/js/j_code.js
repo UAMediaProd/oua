@@ -150,13 +150,15 @@ const renderItems = (data) => {
     list.innerText = '';
     data.forEach(item => {
        // var node = document.createElement("button"); NOTE: buttons will work as an element but might be confusing. List Items make sense inside of a list that you re-order imo.
-        var node = document.createElement("li");
+        var node = document.createElement("button");
         node.draggable = true;
 
         // NOTE: you can only add one class at a time here so you need to add each one individually like: node.classList.add('adx-button'); node.classList.add('primary'); etc.
 
         //node.className = "adx-button primary";
         //node.classList.add('adx-button primary');
+        node.classList.add('adx-button');
+        node.classList.add('primary');
         node.addEventListener('drag', setDragging);
         node.addEventListener('dragover', setDraggedOver);
         node.addEventListener('drop', compare);
@@ -166,8 +168,12 @@ const renderItems = (data) => {
 }
 
 const compare = (e) => {
-    var index1 = randomized.indexOf(dragging);
-    var index2 = randomized.indexOf(draggedOver);
+    console.log(dragging+": dragging");
+    console.log(draggedOver+": draggedOver");
+    var index1 = randomized.indexOf(dragging.toLowerCase());
+    var index2 = randomized.indexOf(draggedOver.toLowerCase());
+    console.log(index1+": dragging");
+    console.log(index2+": draggedOver");
     randomized.splice(index1, 1)
     randomized.splice(index2, 0, dragging)
 
@@ -189,12 +195,12 @@ const setDragging = (e) => {
 
 
 genRandom([
-    'Why are customers important to the manager’s job?',
-    'Why is innovation important to the manager’s job?',
-    'Why are diversity and inclusion important to the manager’s job?',
-    'Why are social media tools important to the manager’s job?',
-    'Why is sustainability important to the manager’s job?',
-    'Why is it important for managers to understand the organisational implications of the COVID-19 pandemic on their job?'
+    'why are customers important to the manager’s job?',
+    'why is innovation important to the manager’s job?',
+    'why are diversity and inclusion important to the manager’s job?',
+    'why are social media tools important to the manager’s job?',
+    'why is sustainability important to the manager’s job?',
+    'why is it important for managers to understand the organisational implications of the covid-19 pandemic on their job?'
 ])
 
 
