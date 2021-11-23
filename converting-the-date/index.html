@@ -62,7 +62,7 @@
             if (dateFormat[0] != "") {
                 document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>The converted date and time is:<h3 style=\"line-height: 1.25\">" + d.substring(0, 14) +"<br>" + d.substring(15) + "<br>(" + moment.tz.guess() +")</h3>";
             } else {
-                document.getElementById("localDate").innerHTML = "Please enter both a date and a time.";
+                document.getElementById("localDate").innerHTML = "<p>Please enter both a date and a time.</p>";
             }
         }
     </script>
