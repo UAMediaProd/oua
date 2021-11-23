@@ -25,17 +25,16 @@
 <body>
 
     <main class='adx'>
-        <div class="adx-cue-top">
+        <div class="adx-cue-brand-midblue-top">
             <div class="dateContainer">
                 <div class="column" style="text-align: center;">
-                    <p>Unsure what time an Adelaide tutorial will occur in your local timezone?</p>
                     <h4 style="font-size: small;">SELECT TUTORIAL DATE & TIME</h4>
                     <input type="datetime-local" id="dateInput" style="width: 200px;"><br>
-                    <button class="adx-button brand-midblue" id="convert">Convert</button>
+                    <button class="adx-button primary" id="convert">Convert</button>
                     <p><i>Note: Depending on your browser, this field may function slightly differently.</i></p>
                 </div>
                 <div class="column" style="text-align: center;">
-                    <h5 id="localDate"></h5>
+                    <hp id="localDate"></hp>
                 </div>
             </div>
 
@@ -61,9 +60,8 @@
             var localDate = moment(a).local();
             var d = moment(localDate.toDate()).format("DD MMM MM YYYY hh:mm a");
             var bobtest = d.substring(0, 14);
-            console.log(bobtest);
             if (dateFormat[0] != "") {
-                document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>Your tutorial will be held on:<h4>" + d.substring(0, 14) + "</h4>" + "<h3>"+ d.substring(15) + "</h3>" + "(" + moment.tz.guess() + ")";
+                document.getElementById("localDate").innerHTML = "<i style=\"font-size: 53px\" class=\"fas fa-laptop\"></i><p>Your tutorial will be held on:<h3 style=\"line-height: 1.25\">" + d.substring(0, 14) +"<br>" + d.substring(15) + "<br>(" + moment.tz.guess() +")</h3>";
             } else {
                 document.getElementById("localDate").innerHTML = "Please enter both a date and a time.";
             }
