@@ -17,6 +17,11 @@
   width:85%;
 }
 
+.adx-direction-inform {
+  max-width: 100% !important;
+  background-color: aqua;
+}
+
 .adx-button.primary:hover {
   font-weight: normal;
 }
@@ -29,5 +34,7 @@
   margin: auto;
   margin-bottom: .5em;
 }
+
+
 
 
