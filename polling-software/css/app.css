@@ -14,7 +14,12 @@
 }
 
 .adx-button.primary {
-  width:85%;
+  width:95%;
+}
+
+.adx-direction-inform {
+  max-width: 100% !important;
+  background-color: aqua;
 }
 
 .adx-button.primary:hover {
@@ -29,5 +34,7 @@
   margin: auto;
   margin-bottom: .5em;
 }
+
+
 
 
