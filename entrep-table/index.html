@@ -38,16 +38,21 @@
             padding: 0.8em;
         }
 
-        .both td {
-            background: #10253529;
+        .both {
+            transition: opacity 0.4s ease-in-out;
         }
+
+        /* .both td {
+            background: #10253529;
+        } */
 
         .adx table tr td:first-child{
             font-weight: 700;
         }
 
         .diff {
-            display: none;
+            transition: opacity 0.4s ease-in-out;
+            opacity: 0.2;
         }
 
 
@@ -191,14 +196,14 @@
        console.log(this.value);
 
     if(this.value == "both"){
-        $(".both").show();
-        $(".diff").hide();
+        $(".both").css("opacity", "1");
+        $(".diff").css("opacity", "0.2");
     } else if (this.value == "diff"){
-        $(".both").hide();
-        $(".diff").show();
+        $(".diff").css("opacity", "1");
+        $(".both").css("opacity", "0.2");
     } else {
-        $(".both").show();
-        $(".diff").show();  
+        $(".both").css("opacity", "1");
+        $(".diff").css("opacity", "1");
     }
     
 
