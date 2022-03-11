@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Question Poll</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://uamediaprod.github.io/uoa-styles/assets/theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+    <style>
+        body main {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 30ch;
+    max-width: 150ch;
+    padding: 2vh 2vw;
+}
+</style>
+</head>
+
+<body>
+
+    <main class='adx'>
+        <div>
+        <h2>Results</h2>
+        </div>
+        <!-- NOTE: temp - this page will be for the CC or tutor to use to speak to - we'll make a chart/charts here -->
+        <div id="results">
+
+        </div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </main>
+
+    <!-- FIREBASE SET UP -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.1/dist/chart.min.js"></script>
+    
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyDNcTSvPaxr3tibN451b5Bl0OTF4hTS-Jo",
+    databaseURL: "https://lrd-interactions-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    authDomain: "lrd-interactions.firebaseapp.com",
+    projectId: "lrd-interactions",
+    storageBucket: "lrd-interactions.appspot.com",
+    messagingSenderId: "432588601822",
+    appId: "1:432588601822:web:78c52f8679cd01b1ff454f"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+var questions = [
+    'why are customers important to the manager\'s job?',
+    'why is innovation important to the manager\'s job?',
+    'why are diversity and inclusion important to the manager\'s job?',
+    'why are social media tools important to the manager\'s job?',
+    'why is sustainability important to the manager\'s job?',
+    'why is it important for managers to understand the organisational implications of the covid-19 pandemic on their job?'
+];
+
+
+var counts = [0,0,0,0,0,0];
+
+
+var polls = firebase.database().ref('poll/');
+
+
+// NOTE: getting the data from Firebase involves taking a snapshot of the data at the current point in time. You can do different things with Firebase where it will constantly update live and all that but we don't need that here. We look at what the current data looks like inside 'poll/' and return that info as a JSON string.
+
+polls.once('value').then(function (snapshot) {
+    data = snapshot.val();
+    console.log(data);
+
+//NOTE: get a list of all the questions
+
+    // FOR each question, count how many times it appears in data[0]
+for (const [key, value] of Object.entries(data)) {
+  console.log(value);
+
+    
+  // Loop through all the entries, and for each entry get the top question (in slot [0])
+
+  console.log(value[0]); // get the top question.
+
+  // find the matching index of questions of value[0]
+     var index1 = questions.indexOf(value[0]);
+  // increment counts[index]++
+  counts[index1] += 1;
+  console.log(index1);
+  console.log(counts);
+}
+
+//  //display stuff. 
+//  var display = ""
+//   // do things
+//   for (var i = 0; i < questions.length; i++){
+//       display += "<p>" + questions[i] + ": " + counts[i] + "</p>";
+//   }
+//   $("#results").html(display);
+
+  //charts
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: questions,
+        datasets: [{
+            label: '# of Votes',
+            data: counts,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        scales: {
+            x: {
+                beginAtZero: true,
+                ticks: {
+                // forces step size to be 1 unit
+                stepSize: 1
+                }
+            }
+        }
+    }
+});
+
+});
+</script>
+
+
+
+    </main>
+
+</body>
+
+</html>

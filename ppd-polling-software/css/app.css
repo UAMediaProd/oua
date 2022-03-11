@@ -1,0 +1,40 @@
+
+/* Create three equal columns that floats next to each other */
+.column {
+  margin-top: 10px;
+  align-self: auto;
+  width: 100%;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.adx-button.primary {
+  width:95%;
+}
+
+.adx-direction-inform {
+  max-width: 100% !important;
+  background-color: aqua;
+}
+
+.adx-button.primary:hover {
+  font-weight: normal;
+}
+
+*, ::after, ::before {
+   box-sizing: unset
+}
+
+.listQuestion {
+  margin: auto;
+  margin-bottom: .5em;
+}
+
+
+
+

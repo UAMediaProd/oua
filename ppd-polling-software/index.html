@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Question Poll</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://uamediaprod.github.io/uoa-styles/assets/theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+
+    
+</head>
+
+<body id="nothing">
+
+    <main class='adx'>
+
+        <div class="adx-direction-inform">
+            <h5>Rank the questions from most important to least important</h5>
+            <p>Before the <a href="https://myuni.adelaide.edu.au/courses/69868/modules/items/2424628" target="_blank">next tutorial</a>, please rank these 6 questions in order of most important to least important.</p>
+            <p>To do this, click on a question and drag it into position: the higher the position, the more important you think the question is; the lower the question, the less important it is.</p>
+            <p>Click the Submit button when you have ranked these 6 questions from most important (Position 1) to least important (Position 6).</p>
+            <p>Your tutor will reveal the results in your tutorial session.</p>
+        </div>
+
+        <div class="container">
+            <div class="column" style="background-color:rgba(170, 170, 170, 0.411); text-align: center !important;">
+                <div style="text-align: center !important" id="questionChoices">
+                    <!-- Column 1 Draggable Questions go here -->
+                    <p style="text-align: center !important"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="controls">
+
+                <button class="adx-button primary" id="checker">Submit</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 id='isRight'></h1>
+        </div>
+
+        <!-- Modals -->
+        <div class="modal fade" id="MainModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="MainTitle">Thank you!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="MainBody">
+                        <p>Thank you! You'll be discussing these results during a future session.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="modalButton" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+    </main>
+
+    <!-- FIREBASE SET UP -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/j_code.js"></script>
+
+    </main>
+
+</body>
+
+</html>
