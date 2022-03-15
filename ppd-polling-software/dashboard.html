@@ -56,34 +56,34 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
+//These questions are manually written to be in captial letters.
 var questions = [
-    'why are customers important to the manager\'s job?',
-    'why is innovation important to the manager\'s job?',
-    'why are diversity and inclusion important to the manager\'s job?',
-    'why are social media tools important to the manager\'s job?',
-    'why is sustainability important to the manager\'s job?',
-    'why is it important for managers to understand the organisational implications of the covid-19 pandemic on their job?'
+    'SNEAKY SOFTBALL GAME',
+    'BIG CLIENT CONTRACT',
+    'DISCOUNTS FOR FRIENDS',
+    'OFFICE RELATIONSHIPS',
+    'FANCY LUNCH, WHO PAYS?',
+    'WHO IS GETTING FIRED?'
 ];
 
 
 var counts = [0,0,0,0,0,0];
 
 
-var polls = firebase.database().ref('poll/');
+var polls = firebase.database().ref('ppd-poll/');
 
 
 // NOTE: getting the data from Firebase involves taking a snapshot of the data at the current point in time. You can do different things with Firebase where it will constantly update live and all that but we don't need that here. We look at what the current data looks like inside 'poll/' and return that info as a JSON string.
 
 polls.once('value').then(function (snapshot) {
     data = snapshot.val();
-    console.log(data);
+    // console.log(data);
 
 //NOTE: get a list of all the questions
 
     // FOR each question, count how many times it appears in data[0]
 for (const [key, value] of Object.entries(data)) {
-  console.log(value);
+  console.log(value, "data");
 
     
   // Loop through all the entries, and for each entry get the top question (in slot [0])
