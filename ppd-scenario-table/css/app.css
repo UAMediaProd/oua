@@ -1,0 +1,21 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+
+main {
+  margin: 1em;
+}
+
+th {
+  background: #102535;
+  color: #fff;
+}
+
+.term {
+  font-weight: 700;
+}
+
+.radioMark {
+  left: 41%;
+
+}
