@@ -17,5 +17,8 @@ th {
 
 .radioMark {
   left: 41%;
+}
 
+.centered {
+  text-align: center;
 }
