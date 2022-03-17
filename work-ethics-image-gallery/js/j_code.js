@@ -1,21 +1,38 @@
 const imageIDs = [
-    '1Y4SMVrASrzpW_b7nCosJakJX8tY7GrlW',
-    '1aiFh19LlHM8ysGVUBY3bg5urc49MY9RL',
-    '1ngqXNoSCx6YuNhbw5hFPcfN8yCgFyLoZ',
-    '1sJvpkXpiplRGJ-t_mHKIomgzjs3RClDO',
-    '1lNzhZj1HRL8Z1RlQcb8WBeGvV0Wl6rJh',
-    '190wANDnc_QbXs8htnfm-C1FcakXZK_QU',
-    '15wuAYx9Z87WDnghLEyYwZFcNfzrDTC25',
-    '1SEjuMbciOdKzW6Jc3yErzinCOupR4BHC',
-    '10S0ERzLcAQhcGVQfVR-OX3_BOSaZJaQl',
-    '1BJHLm7lImY6DWCc558lYjl9FkYA24Ad3',
-    '1qbv5eXaZat-CgMuKwATrE8R6wIOXFm4p',
-    '1QP8qtaYcPd5O_UzSTqlmOFAFxvXR1QRi',
-    '1InHDA9-ZRfi472SA_xrzo8LJxKN-7W2U',
-    '1Ozn08CWe6VVMU-8VTpYRNxl1Q69LdS8p',
+    '1388233762606133254-png__700.jpg',
+    '1388314636127195136-png__700.jpg',
+    '1388355193511759873-png__700.jpg',
+    '1388282848306552832-png__700.jpg',
+    '1388317961421824002-png__700.jpg',
+    '1388375401756516357-png__700.jpg',
+    '1388297999068061696-png__700.jpg',
+    '1388324037164605440-png__700-1.jpg',
+    '1388476677471285251-png__700.jpg',
+    '1388301236710019073-png__700.jpg',
+    '1388342408358793217-png__700.jpg',
+    '1388515254682849283-png__700.jpg',
+    '1388302544443625474-png__700.jpg',
+    '1388342978616471552-png__700.jpg',
 ];
 
-const baseURL = 'https://drive.google.com/uc?export=download&id=';
+const baseURL = './assets/';
+
+// google drive base link 'https://drive.google.com/uc?export=download&id='
+// file IDs:
+// '1Y4SMVrASrzpW_b7nCosJakJX8tY7GrlW',
+// '1aiFh19LlHM8ysGVUBY3bg5urc49MY9RL',
+// '1ngqXNoSCx6YuNhbw5hFPcfN8yCgFyLoZ',
+// '1sJvpkXpiplRGJ-t_mHKIomgzjs3RClDO',
+// '1lNzhZj1HRL8Z1RlQcb8WBeGvV0Wl6rJh',
+// '190wANDnc_QbXs8htnfm-C1FcakXZK_QU',
+// '15wuAYx9Z87WDnghLEyYwZFcNfzrDTC25',
+// '1SEjuMbciOdKzW6Jc3yErzinCOupR4BHC',
+// '10S0ERzLcAQhcGVQfVR-OX3_BOSaZJaQl',
+// '1BJHLm7lImY6DWCc558lYjl9FkYA24Ad3',
+// '1qbv5eXaZat-CgMuKwATrE8R6wIOXFm4p',
+// '1QP8qtaYcPd5O_UzSTqlmOFAFxvXR1QRi',
+// '1InHDA9-ZRfi472SA_xrzo8LJxKN-7W2U',
+// '1Ozn08CWe6VVMU-8VTpYRNxl1Q69LdS8p',
 
 let slideIndex = 1;
 
