@@ -45,18 +45,20 @@
 .listNumber {
   margin: auto;
   margin-bottom: 5px;
-  margin-left: 15px;
+  margin-left: 10px;
   font-size: large;
 }
 
 .brand-midblue {
-  background-color: #ebf2f7 !important;
+  background-color: #102535 !important;
   cursor: default;
+  border-color: #102535 !important;
+  color: white !important;
 }
 
 .brand-midblue:hover {
-  background-color: #ebf2f7 !important;
-  color: black !important;
+  background-color: #102535 !important;
+  color: white !important;
 
 }
 
