@@ -7,6 +7,12 @@
   padding: 5px;
 }
 
+.columnthin {
+  margin-top: 10px;
+  align-self: auto;
+  width: 5%;
+  padding: 5px;
+}
 .container {
   display: flex;
   align-items: flex-end;
@@ -32,11 +38,26 @@
 
 .listQuestion {
   margin: auto;
-  margin-top: 1em;
   margin-bottom: 5px;
   font-size: large;
 }
 
+.listNumber {
+  margin: auto;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  font-size: large;
+}
+
+.brand-midblue {
+  background-color: #ebf2f7 !important;
+}
+
+.brand-midblue:hover {
+  background-color: #ebf2f7 !important;
+  color: black !important;
+  cursor: default;
+}
 
 
 
