@@ -50,16 +50,15 @@
 }
 
 .brand-midblue {
-  background-color: #102535 !important;
+  background-color: #dcdcdc !important;
   cursor: default;
-  border-color: #102535 !important;
-  color: white !important;
+  border-color: #dcdcdc !important;
+  color: black !important;
 }
 
 .brand-midblue:hover {
-  background-color: #102535 !important;
-  color: white !important;
-
+  background-color: #dcdcdc !important;
+  color: black !important;
 }
 
 .adx-button.primary.bottombar {
