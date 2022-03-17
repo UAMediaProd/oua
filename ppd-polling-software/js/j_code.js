@@ -72,14 +72,15 @@ const renderItems = (data) => {
         node.addEventListener('drag', setDragging);
         node.addEventListener('dragover', setDraggedOver);
         node.addEventListener('drop', compare);
-        node.innerText = item;
+        node.innerHTML = item;
+        //node.innerHTML = "<p>"+item+"</b>";
+        console.log(list+"_list");
         list.appendChild(node);
         
     })
 }
 
 const compare = (e) => {
-
     var index1 = randomized.indexOf(dragging);
     var index2 = randomized.indexOf(draggedOver);
     console.log(index1 + "Index1");
@@ -88,7 +89,6 @@ const compare = (e) => {
     randomized.splice(index2, 0, dragging)
     console.log(randomized+"randomized");
     renderItems(randomized);
-    
 };
 
 
@@ -111,7 +111,7 @@ const setDragging = (e) => {
 
 //The list of 
 genRandom([
-    'SNEaky softball game',
+    'Sneaky softball game',
     'Big client contract',
     'Discounts for friends',
     'Office relationships',
