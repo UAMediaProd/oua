@@ -19,9 +19,15 @@ const baseURL = 'https://drive.google.com/uc?export=download&id=';
 
 let slideIndex = 1;
 
+let xDown = null;
+let yDown = null;
+
 const defaultList = document.querySelector('.default.image-list');
 const modalList = document.querySelector('.modal-content.image-list');
 const thumbnailList = document.querySelector('.thumbnail.image-list');
+
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
 
 for (let i = 0; i < imageIDs.length; i++) {
     const images = document.querySelectorAll('.image-list div:nth-child(' + (i + 1) + ') img');
@@ -106,4 +112,36 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+function handleTouchStart(e) {
+  xDown = e.touches[0].clientX;
+  yDown = e.touches[0].clientY;
+}
+
+function handleTouchMove(e) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  var xUp = e.touches[0].clientX;
+  var yUp = e.touches[0].clientY;
+
+  var xDiff = xUp - xDown;
+  var yDiff = yUp - yDown;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 10) {
+    /*most significant*/
+    if (xDiff > 0) {
+      /* left swipe */
+      plusSlides(-1);
+    } else {
+      /* right swipe */
+      plusSlides(1);
+    }
+  }
+
+  /* reset values */
+  xDown = null;
+  yDown = null;
 }
