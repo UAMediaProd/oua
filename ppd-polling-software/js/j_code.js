@@ -116,7 +116,8 @@ genRandom([
     'Discounts for friends',
     'Office relationships',
     'Fancy lunch, who pays?',
-    'Who is getting fired?'
+    'Who is getting fired?',
+    'Take one for the family'
 ])
 
 //-------- Event Listeners -----------

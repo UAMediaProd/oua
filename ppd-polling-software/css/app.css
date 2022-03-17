@@ -33,7 +33,7 @@
 }
 
 *, ::after, ::before {
-   box-sizing: unset
+   box-sizing: unset;
 }
 
 .listQuestion {
@@ -51,13 +51,37 @@
 
 .brand-midblue {
   background-color: #ebf2f7 !important;
+  cursor: default;
 }
 
 .brand-midblue:hover {
   background-color: #ebf2f7 !important;
   color: black !important;
+
+}
+
+.adx-button.primary.bottombar {
+  background-color: #fa6769   !important;
+  border: none;
   cursor: default;
 }
 
+.adx-button.primary.bottombar:hover {
+  background-color: #fa6769  !important;
+  color: black !important;
+ }
+
+.adx-button.primary.topbar {
+  background-color: #43aa8b !important;
+  border: none;
+  cursor: default;
+}
+
+.adx-button.primary.topbar:hover {
+  background-color: #43aa8b  !important;
+  color: black !important;
+ }
+
+ 
 
 
