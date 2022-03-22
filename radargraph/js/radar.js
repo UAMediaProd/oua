@@ -203,12 +203,13 @@ $(document).ready(function () {
         // set up sliders
         var min = 4;
         var max = 20;
+        
         var slider_labels = [
-            'Never',
-            'Rarely',
-            'Sometimes',
-            'Often',
-            'Always',
+            '<span style="font-size: x-large;" <b>1</b></span> Never',
+            '<span style="font-size: x-large;" <b>2</b></span> Rarely',
+            '<span style="font-size: x-large;" <b>3</b></span> Sometimes',
+            '<span style="font-size: x-large;" <b>4</b></span> Often',
+            '<span style="font-size: x-large;" <b>5</b></span> Always',
         ];
         var density = slider_labels.length;
 

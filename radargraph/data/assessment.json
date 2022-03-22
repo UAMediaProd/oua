@@ -1,63 +1,63 @@
 [{
 
-    "title": "Assess your assessment",
-    "introduction": "This radar graph is designed to enable you to review the assessment items contained in a course to determine the suitability of assessment across a series of five domains. In some instances you may not know the answer. Where this is the case, ‘never’ is the same as I don’t know. This activity should take no longer than 15 minutes.",
+    "title": "Potential areas of development radar graph",
+    "introduction": "The aim of this assessment task is for you to undertake a self-assessment to determine your potential areas of development as a professional person. This first assessment task considers your current knowledge and skills and forms a basis for you to plan your future professional learning and development activities. In this assessment task you are required to analyse and reflect on your current professional position.<br><br>Complete the radar graph’s 5 pre-determined dimensions. Each dimension contains several statements that you will need to assign a score between 1 and 5. Each dimension’s score is automatically aggregated and plotted onto a final radar graph presentation.",
     "entry":true,
     "entryLabel": "Enter the name of the course you are assessing:",
     "pages":[
        {
-            "name": "Balanced",
-            "description":"Assessment is rich in practice opportunities and reflecting the fact that students today need to be capable of lifelong learning, to adapt to changes in the world of work and across their lives rather than succeeding at one high stakes, high-stress exam.",
+            "name": "Self-awareness",
+            "description":"",
             "statements": [
-                "The assessment weightings contained in this course are distributed evenly. i.e. there is not one single high stakes summative assessment at the end of the course.",
-                "Assessments are delivered at a reasonable space and pace to support student learning.",
-                "The assessment tasks are designed to ensure that students meet all of the learning outcomes upon completion of the course.",
-                "The assessment contained in this course is delivered in appropriately timed intervals in consideration of other courses in the program of study. OR when designing the assessment regime, the timing of assessments in other courses is taken into account.",
-                "Successive assessment tasks are integrated to allow for the application of knowledge and skill growth and development."
+                "I typically work well with people.",
+                "I generally think about what I say to people before I speak.",
+                "I usually express my thoughts and feelings openly.",
+                " I know my strengths and weaknesses.",
+                "I communicate confidently."
             ]
         },
         {
-            "name": "Academic Integrity",
-            "description":"Assessment design ensures that the right student is taking the right assessment and that the work they are submitting is their own and abides by the University’s academic integrity principles.",
+            "name": "Collaborative practices",
+            "description":"",
             "statements": [
-                "Assessment contained in this course provides students with clear expectations regarding citations and referencing requirements",
-                "Assessment items require students to demonstrate higher order thinking, rather than rote learning or reciting facts.",
-                "Assessment is designed to promote student awareness of academic integrity.",
-                "Assessment items include the use of technologies to promote academic integrity. e.g. TurnItIn, GradeScope, etc.",
-                "Overall assessment design in the course ensures that the student work is authenticated."
+                "I enjoy solving problems/challenges as part of a team.",
+                "I typically enjoy working in a team.",
+                "I like to share ideas openly with others.",
+                "I always learn something new when I work in a team.",
+                "When working with others, it is important that each person is accountable for their role and ideas."
             ]
         },
         {
-            "name": "Feedback",
-            "description":"Feedback is designed to provide specific and actionable feedback for students",
+            "name": "Growth mindset",
+            "description":"",
             "statements": [
-                "Marking and feedback of all assessment items is available via MyUni.",
-                "Each assessment item contains a clear set of criteria for students prior to submission",
-                "Feedback is timely and able to be actioned by students throughout the course.",
-                "Feedback supports ongoing skill development and promotes student learning.",
-                "The assessment in this course includes opportunities for peer and self-assessment"
+                "I see challenges as an opportunity to grow and learn.",
+                "I do not see my weaknesses as an obstacle but something to work on to achieve my goals.",
+                "I persist to achieve what I have set out to do.",
+                "I welcome feedback and view it as constructive to improve.",
+                "I like to continually learn new things."
             ]
         },
         {
-            "name": "Accessible",
-            "description":"Accessible assessment is designed throughout to be usable by everyone to the greatest possible extent, including those who have a long-term disability, a short-term injury or a mental health challenge e.g. anxiety.",
+            "name": "Professional knowledge",
+            "description":"",
             "statements": [
-                "Assessment items contain clear instructions for students.",
-                "All assessment tasks are available via MyUni.",
-                "The accessibility checker in MyUni is used regularly in this course.",
-                "Assessments are purposefully designed to be inclusive to all learners. i.e. Assessment items do not need significant revisions to accommodate the needs of individual learners.",
-                "Assessment items are supported by appropriate technologies."
+                "I am confident in my knowledge and skills of my profession/industry.",
+                "I keep up to date with developments in my profession/industry.",
+                "I do regular courses to learn new skills.",
+                "I network with other professionals in the industry.",
+                "Cooperative learning with others enables me to further develop my knowledge and skills in my industry/place of work."
             ]
         },
         {
-            "name": "Authentic ",
-            "description":"Authentic assessment prepares the learner for what they are going to do next, meeting employer needs and testing knowledge and skills in a realistic, contextualised and motivating way.",
+            "name": "Reflective practice",
+            "description":"",
             "statements": [
-                "The assessment in this course contains options that challenge students to apply knowledge and skills via the production of an outcome.",
-                "The assessment in this course reflects the type of activity that students are likely to encounter in the workplace.",
-                "Assessment in this course is designed for students to generate and submit electronically.",
-                "The assessment contained in this course reflects contemporary workplace practices.",
-                "Assessment tasks in this course are designed in collaboration with an industry partner."
+                "I typically consider alternative views and perspectives before making my own decision.",
+                "I think about situations that did not go as planned and consider the lessons learnt.",
+                "I question my own actions and beliefs in order to improve.",
+                "I like to ask questions and challenge the status quo.",
+                "I am comfortable in trying out new strategies ideas when approaching situations."
             ]
         }
     ]
