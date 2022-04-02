@@ -16,6 +16,8 @@
   <script src="js/jquery.nouislider.a11y.js"></script>
   <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
   <script src="js/radar.js"></script>
+  <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTTKD1NKGW"></script>
   <script>
@@ -40,11 +42,12 @@
     <div class="pager" id="paging">
 
       <div id="chart" class="panel page" style="padding: 3em;">
-        <div class="row">
+        <div id="printscreen" class="row">
 
           <div id="legend"></div>
           <div class="chart"><canvas id="characteristics"></canvas></div>
         </div>
+        <div><button type="button" onclick="alert('Hello world!')">Click Me!</button></div>
         <div class="row">
           <div class="row intro">
             <p></p>
