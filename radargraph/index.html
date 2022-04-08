@@ -8,9 +8,6 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.min.css" />
   <link rel="stylesheet" type="text/css" href="css/jquery.nouislider.pips.min.css" />
   <link rel="stylesheet" type="text/css" href="css/radar.css" />
-  <script>
-    import html2canvas from 'html2canvas';
-  </script>
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/foundation.min.js"></script>
@@ -19,13 +16,13 @@
   <script src="js/jquery.nouislider.a11y.js"></script>
   <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
   <script src="js/radar.js"></script>
-  <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
- 
+
+
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTTKD1NKGW"></script>
   <script>
-    
+
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -38,13 +35,14 @@
 
   <script>
 
-    function myFunction () {
+    function myFunction(el) {
       console.log("hi");
-      
 
-html2canvas(document.querySelector("#printscreen")).then(canvas => {
-    document.body.appendChild(canvas)
-});
+      var canvas = document.getElementById("characteristics");
+
+      var image = canvas.toDataURL("image/jpg");
+      el.href = image;
+
 
 
     }
@@ -61,12 +59,13 @@ html2canvas(document.querySelector("#printscreen")).then(canvas => {
     <div class="pager" id="paging">
 
       <div id="chart" class="panel page" style="padding: 3em;">
-        <div id="printscreen" class="row">
+        <div class="row">
 
           <div id="legend"></div>
-          <div id="printscreen" class="chart"><canvas id="characteristics"></canvas></div>
+          <div style="background-color: white; display: block; margin: 0 auto;" class="chart"><canvas id="characteristics"></canvas></div>
         </div>
-        <div><button type="button" onclick="myFunction()">Save Graph</button></div>
+
+        <a id="download" style="display: block; margin: 0 auto;" class="button" download="RadarGraph.jpg" href="" onclick="myFunction(this);"><i class="fa fa-download" style="font-size:medium"></i>  Download Graph</a>
         <div class="row">
           <div class="row intro">
             <p></p>
@@ -110,9 +109,6 @@ html2canvas(document.querySelector("#printscreen")).then(canvas => {
   </div>
 </body>
 
-<footer>
-  <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
 
-</footer>
 
 </html>
