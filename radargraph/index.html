@@ -17,10 +17,14 @@
   <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
   <script src="js/radar.js"></script>
   <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+  <script>
+    
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTTKD1NKGW"></script>
   <script>
+    
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -29,6 +33,20 @@
     gtag('js', new Date());
 
     gtag('config', 'G-YTTKD1NKGW');
+  </script>
+
+  <script>
+
+    function myFunction () {
+      console.log("hi");
+      
+
+html2canvas(document.querySelector("#printscreen")).then(canvas => {
+    document.body.appendChild(canvas)
+});
+
+
+    }
   </script>
 
 
@@ -45,9 +63,9 @@
         <div id="printscreen" class="row">
 
           <div id="legend"></div>
-          <div class="chart"><canvas id="characteristics"></canvas></div>
+          <div id="printscreen" class="chart"><canvas id="characteristics"></canvas></div>
         </div>
-        <div><button type="button" onclick="alert('Hello world!')">Click Me!</button></div>
+        <div><button type="button" onclick="myFunction()">Save Graph</button></div>
         <div class="row">
           <div class="row intro">
             <p></p>
@@ -90,5 +108,10 @@
     </div>
   </div>
 </body>
+
+<footer>
+  <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+
+</footer>
 
 </html>
