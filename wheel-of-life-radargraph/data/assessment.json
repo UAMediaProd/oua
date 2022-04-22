@@ -1,65 +1,59 @@
-[{
-
-    "title": "Potential areas of development radar graph",
-    "introduction": "The aim of this assessment task is for you to undertake a self-assessment to determine your potential areas of development as a professional person. This first assessment task considers your current knowledge and skills and forms a basis for you to plan your future professional learning and development activities. In this assessment task you are required to analyse and reflect on your current professional position.<br><br>Complete the radar graph’s 5 pre-determined dimensions. Each dimension contains several statements that you will need to assign a score between 1 and 5. Each dimension’s score is automatically aggregated and plotted onto a final radar graph presentation.",
-    "entry":true,
-    "entryLabel": "Enter the name of the course you are assessing:",
-    "pages":[
-       {
-            "name": "Self-awareness",
-            "description":"",
-            "statements": [
-                "I typically work well with people.",
-                "I generally think about what I say to people before I speak.",
-                "I usually express my thoughts and feelings openly.",
-                " I know my strengths and weaknesses.",
-                "I communicate confidently."
-            ]
-        },
-        {
-            "name": "Collaborative practices",
-            "description":"",
-            "statements": [
-                "I enjoy solving problems/challenges as part of a team.",
-                "I typically enjoy working in a team.",
-                "I like to share ideas openly with others.",
-                "I always learn something new when I work in a team.",
-                "When working with others, it is important that each person is accountable for their role and ideas."
-            ]
-        },
-        {
-            "name": "Growth mindset",
-            "description":"",
-            "statements": [
-                "I see challenges as an opportunity to grow and learn.",
-                "I do not see my weaknesses as an obstacle but something to work on to achieve my goals.",
-                "I persist to achieve what I have set out to do.",
-                "I welcome feedback and view it as constructive to improve.",
-                "I like to continually learn new things."
-            ]
-        },
-        {
-            "name": "Professional knowledge",
-            "description":"",
-            "statements": [
-                "I am confident in my knowledge and skills of my profession/industry.",
-                "I keep up to date with developments in my profession/industry.",
-                "I do regular courses to learn new skills.",
-                "I network with other professionals in the industry.",
-                "Cooperative learning with others enables me to further develop my knowledge and skills in my industry/place of work."
-            ]
-        },
-        {
-            "name": "Reflective practice",
-            "description":"",
-            "statements": [
-                "I typically consider alternative views and perspectives before making my own decision.",
-                "I think about situations that did not go as planned and consider the lessons learnt.",
-                "I question my own actions and beliefs in order to improve.",
-                "I like to ask questions and challenge the status quo.",
-                "I am comfortable in trying out new strategies ideas when approaching situations."
-            ]
-        }
-    ]
-
-}]
+[
+    {
+        "title": "My Wheel of Life",
+        "introduction": "The Wheel of Life is a simple but powerful tool that helps you visualize all the important areas of your life at once. It is often used by life coaches and career coaches to give their clients a \"bird's eye\" view of their lives. By looking at a visual representation of all the areas of your life at once, the wheel helps you to better understand which of your life areas are flourishing and which ones need the most work.",
+        "entry": true,
+        "entryLabel": "How would you rate these area of your life?",
+        "pages": [
+            {
+                "name": "Spirituality",
+                "description": "",
+                "statements": [
+                    "Spirituality"
+                ]
+            },
+            {
+                "name": "Friends",
+                "description": "",
+                "statements": [
+                    "Friends"
+                ]
+            },
+            {
+                "name": "Career",
+                "description": "",
+                "statements": [
+                    "Career"
+                ]
+            },
+            {
+                "name": "Love",
+                "description": "",
+                "statements": [
+                    "Love"
+                ]
+            },
+            {
+                "name": "Family",
+                "description": "",
+                "statements": [
+                    "Family"
+                ]
+            },
+            {
+                "name": "Money",
+                "description": "",
+                "statements": [
+                    "Money"
+                ]
+            },
+            {
+                "name": "Health",
+                "description": "",
+                "statements": [
+                    "Friends"
+                ]
+            }
+        ]
+    }
+]

@@ -82,7 +82,7 @@ $(document).ready(function () {
                 $('#' + id).append("<div class='row nav'><div class='progress radius round'><span class='meter'></span></div><a href='#' class='prev' title='back'><i class='fa-chevron-circle-left fa'></i></a><a href='#' class='next' title='next'><i class='fa-chevron-circle-right fa'></i></a></div>");
             }
 
-            $('#' + id + ' .meter').css("width", i / 5 * 100 + '%');
+            $('#' + id + ' .meter').css("width", i / 10 * 100 + '%');
             $('#chart').before("</div>");
             //close div
 
@@ -201,21 +201,26 @@ $(document).ready(function () {
 
 
         // set up sliders
-        var min = 4;
-        var max = 20;
+        var min = 1;
+        var max = 10;
         
         var slider_labels = [
-            '<span style="font-size: x-large;" <b>1</b></span> Never',
-            '<span style="font-size: x-large;" <b>2</b></span> Rarely',
-            '<span style="font-size: x-large;" <b>3</b></span> Sometimes',
-            '<span style="font-size: x-large;" <b>4</b></span> Often',
-            '<span style="font-size: x-large;" <b>5</b></span> Always',
+            '<span style="font-size: x-large;" <b>1</b>',
+            '<span style="font-size: x-large;" <b>2</b>',
+            '<span style="font-size: x-large;" <b>3</b>',
+            '<span style="font-size: x-large;" <b>4</b>',
+            '<span style="font-size: x-large;" <b>5</b>',
+            '<span style="font-size: x-large;" <b>6</b>',
+            '<span style="font-size: x-large;" <b>7</b>',
+            '<span style="font-size: x-large;" <b>8</b>',
+            '<span style="font-size: x-large;" <b>9</b>',
+            '<span style="font-size: x-large;" <b>10</b>'
         ];
         var density = slider_labels.length;
 
         $('.answer').each(function (idx, slider) {
             $(slider).noUiSliderA11y({
-                'step': 4,
+                'step': 1,
                 'animate': true,
                 'start': min,
                 'range': {
@@ -239,7 +244,7 @@ $(document).ready(function () {
                 },
                 'filter': function (value) {
                     // labeled steps are large
-                    if (value % 4 == 0) {
+                    if (value % 9 == 0) {
                         return 1;
                     }
                     // remaining steps are small
@@ -296,8 +301,8 @@ $(document).ready(function () {
             'scaleLabel': "<%= value %>%",
             'scaleFontSize': 10,
             'scaleOverride': true,
-            'scaleSteps': 5,
-            'scaleStepWidth': 20,
+            'scaleSteps': 10,
+            'scaleStepWidth': 1,
             'scaleStartValue': 0,
             'multiTooltipTemplate': "<%= value %>%",
             'legendTemplate': "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"border-color:<%=datasets[i].strokeColor%>;background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
