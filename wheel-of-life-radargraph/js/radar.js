@@ -76,7 +76,8 @@ $(document).ready(function () {
                 $('#' + id).append("<div class='row nav'><div class='progress radius round'><span class='meter'></span></div><a href='#' class='prev' title='back'><i class='fa-chevron-circle-left fa'></i></a><a href='#' class='next' title='next'><i class='fa-chevron-circle-right fa'></i></a></div>");
             }
 
-            $('#' + id + ' .meter').css("width", i / 10 * 100 + '%');
+
+            $('#' + id + ' .meter').css("width", i / 6 * 100 + '%');
             $('#chart').before("</div>");
             //close div
 
