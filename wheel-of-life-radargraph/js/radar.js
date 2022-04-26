@@ -6,12 +6,6 @@ $(document).ready(function () {
         }
     });
 
-    var role;
-    //save the role
-    $("#role").change(function () {
-        role = $(this).val();
-        console.log(role);
-    })
 
 
 
@@ -143,17 +137,20 @@ $(document).ready(function () {
                 var score = 0;
                 var hasAnswers = false;
                 var answerCount = $(page).find('.answer').length;
-                var adjustedCount = answerCount * 20;
+                var adjustedCount = answerCount;
+
+                console.log("adjusted", adjustedCount);
 
                 $(page).find('.answer').each(function (idx, answer) {
                     hasAnswers = true;
                     score += parseFloat($(answer).val());
+                    console.log("answerScore", score);
 
                 });
 
                 if (hasAnswers) {
 
-                    let percent = (score / adjustedCount) * 100;
+                    let percent = score;
                     scores.push(percent);
                     labels.push(label);
                     console.log(scores);
@@ -162,18 +159,8 @@ $(document).ready(function () {
             });
 
             showChart('canvas', labels, scores);
-            //set dimension for showFeedback to be one of the roles selected
 
-            var dimensionRole;
 
-            if (role != null){
-                dimensionRole = '.' + role;
-
-                showFeedback('.feedback ' + dimensionRole + '', '.feedback', scores);
-            } else {
-                console.log("T");
-                showFeedback('.feedback', '.feedback', scores);
-            }
           
 
 
@@ -205,16 +192,16 @@ $(document).ready(function () {
         var max = 10;
         
         var slider_labels = [
-            '<span style="font-size: x-large;" <b>1</b>',
-            '<span style="font-size: x-large;" <b>2</b>',
-            '<span style="font-size: x-large;" <b>3</b>',
-            '<span style="font-size: x-large;" <b>4</b>',
-            '<span style="font-size: x-large;" <b>5</b>',
-            '<span style="font-size: x-large;" <b>6</b>',
-            '<span style="font-size: x-large;" <b>7</b>',
-            '<span style="font-size: x-large;" <b>8</b>',
-            '<span style="font-size: x-large;" <b>9</b>',
-            '<span style="font-size: x-large;" <b>10</b>'
+            '<span style="font-size: large;" <b>1</b>',
+            '<span style="font-size: large;" <b>2</b>',
+            '<span style="font-size: large;" <b>3</b>',
+            '<span style="font-size: large;" <b>4</b>',
+            '<span style="font-size: large;" <b>5</b>',
+            '<span style="font-size: large;" <b>6</b>',
+            '<span style="font-size: large;" <b>7</b>',
+            '<span style="font-size: large;" <b>8</b>',
+            '<span style="font-size: large;" <b>9</b>',
+            '<span style="font-size: large;" <b>10</b>'
         ];
         var density = slider_labels.length;
 
@@ -243,14 +230,9 @@ $(document).ready(function () {
                     }
                 },
                 'filter': function (value) {
-                    // labeled steps are large
-                    if (value % 9 == 0) {
+
                         return 1;
-                    }
-                    // remaining steps are small
-                    else {
-                        return 0;
-                    }
+
                 }
             });
         });
@@ -318,56 +300,5 @@ $(document).ready(function () {
 
         $('#legend').html(radarChart.generateLegend());
     }
-
-
-    // feedback for items will only show if the score is not high
-    function showFeedback(dimensions, feedback, scores) {
-        var threshold = 40;
-        var $dimensions = $(dimensions);
-        var $feedback = $(feedback);
-
-        console.log($dimensions);
-
-
-        // $(feedback).addClass('hide');
-        // $feedback.addClass('hide');
-        // $dimensions.addClass('hide');
-
-        $(scores).each(function (idx, score) {
-            //custom extra step for score above threshold but only for CC
-
-            if (role == 'coordinator') {
-                console.log(score + " for " + idx);
-                if (score < 40) {
-                    //show low
-                    var CCdimensions = $('.feedback .ccLow');
-                    $(CCdimensions.get(idx)).removeClass('hide');
-
-                } else if (score > 70) {
-                    //show high
-                    var CCdimensions = $('.feedback .ccHigh');
-                    $(CCdimensions.get(idx)).removeClass('hide');
-
-                } else {
-                    //do nothing
-                }
-            }
-            //standard for all other roles
-            else if (score < threshold) {
-                console.log($dimensions.get(idx));
-                console.log(score);
-                $($dimensions.get(idx)).removeClass('hide');
-               
-            }
-
-        });
-    }
-
-
-
-
-
-
-
 
 });
